@@ -1,6 +1,6 @@
 import type { NextPage } from 'next';
 import Head from 'next/head';
-import Image from 'next/image';
+import Banner from '../components/Banner';
 import Footer from '../components/Footer';
 import Header from '../components/Header';
 import styles from './index.module.css';
@@ -15,7 +15,7 @@ const Home: NextPage = () => {
       </Head>
 
       <Header></Header>
-      <h1>BeardyBear</h1>
+      <Banner></Banner>
       <Footer></Footer>
     </div>
   );

@@ -1,0 +1,33 @@
+.banner {
+  background-color: #141414;
+  color: #ffffff;
+}
+
+.content {
+  display: grid;
+  grid-template-columns: 7fr 5fr;
+}
+
+.bannerImage {
+  grid-column: 2 / 3;
+}
+
+.textContent {
+  grid-row: 1 / 2;
+  grid-column: 1 / 2;
+}
+
+.slogan {
+  font-size: 2.7em;
+  margin-top: 5em;
+  margin-bottom: 5em;
+}
+
+.actionButton {
+  background-color: #ffe9b0;
+  color: #000000;
+  font-weight: 500;
+  text-transform: uppercase;
+  padding: 0.8em 1.2em;
+  border-radius: 10px;
+}
