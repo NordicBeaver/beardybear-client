@@ -7,7 +7,7 @@ import styles from './index.module.css';
 
 const Home: NextPage = () => {
   return (
-    <div className={styles.container}>
+    <div className={styles.page}>
       <Head>
         <title>Beardybear</title>
         <meta name="description" content="BeardyBear barbershop." />
