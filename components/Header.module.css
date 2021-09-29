@@ -1,0 +1,33 @@
+.header {
+  background-color: #141414;
+  color: #ffffff;
+}
+
+.container {
+  width: 1200px;
+  margin: 0 auto;
+}
+
+.content {
+  padding: 2em 0;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.logo {
+  font-size: 1.4em;
+  color: #ffe9b0;
+  flex-basis: 200px;
+}
+
+.menu {
+  display: flex;
+  font-size: 1.1em;
+  font-weight: 500;
+  text-transform: uppercase;
+}
+
+.menuItem {
+  margin-right: 2em;
+}
