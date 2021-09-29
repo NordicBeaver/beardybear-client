@@ -4,6 +4,7 @@ import AboutUs from '../components/AboutUs';
 import Banner from '../components/Banner';
 import Footer from '../components/Footer';
 import Header from '../components/Header';
+import PopularServices from '../components/PopularServices';
 import styles from './index.module.css';
 
 const Home: NextPage = () => {
@@ -18,6 +19,7 @@ const Home: NextPage = () => {
       <Header></Header>
       <Banner></Banner>
       <AboutUs></AboutUs>
+      <PopularServices></PopularServices>
       <Footer></Footer>
     </div>
   );

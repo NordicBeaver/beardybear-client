@@ -1,0 +1,29 @@
+.popularServices {
+  color: #141414;
+}
+
+.heading {
+  font-weight: 500;
+  font-size: 1.6em;
+  margin-bottom: 3em;
+  text-align: center;
+}
+
+.service {
+  text-align: center;
+  margin-bottom: 4em;
+}
+
+.serviceName {
+  font-size: 1.1em;
+  font-weight: 500;
+}
+
+.servicePrice {
+  font-size: 1.1em;
+  font-weight: 700;
+}
+
+.serviceDescription {
+  color: #575551;
+}
