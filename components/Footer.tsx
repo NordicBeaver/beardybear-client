@@ -1,10 +1,11 @@
 import React from 'react';
+import Container from './Container';
 import styles from './Footer.module.css';
 
 export default function Footer() {
   return (
     <div className={styles.footer}>
-      <div className={styles.container}>
+      <Container>
         <div className={styles.content}>
           <div className={styles.blockWrapper}>
             <div>
@@ -29,7 +30,7 @@ export default function Footer() {
             </div>
           </div>
         </div>
-      </div>
+      </Container>
     </div>
   );
 }

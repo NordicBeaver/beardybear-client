@@ -1,11 +1,12 @@
 import React from 'react';
 import Link from 'next/link';
 import styles from './Header.module.css';
+import Container from './Container';
 
 export default function Header() {
   return (
     <header className={styles.header}>
-      <div className={styles.container}>
+      <Container>
         <div className={styles.content}>
           <span className={styles.logo}>Beardy Bear</span>
           <ul className={styles.menu}>
@@ -31,7 +32,7 @@ export default function Header() {
             </li>
           </ul>
         </div>
-      </div>
+      </Container>
     </header>
   );
 }

@@ -3,11 +3,6 @@
   color: #ffffff;
 }
 
-.container {
-  width: 1200px;
-  margin: 0 auto;
-}
-
 .content {
   padding: 2em 0;
   display: flex;

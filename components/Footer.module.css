@@ -3,11 +3,6 @@
   color: #ffffff;
 }
 
-.container {
-  width: 1200px;
-  margin: 0 auto;
-}
-
 .content {
   display: grid;
   grid-template-columns: 1fr 1fr 1fr;
