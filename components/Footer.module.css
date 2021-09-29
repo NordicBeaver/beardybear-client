@@ -1,0 +1,33 @@
+.footer {
+  background-color: #141414;
+  color: #ffffff;
+}
+
+.container {
+  width: 1200px;
+  margin: 0 auto;
+}
+
+.content {
+  display: grid;
+  grid-template-columns: 1fr 1fr 1fr;
+  padding: 3em 0;
+}
+
+.blockWrapper {
+  display: flex;
+  justify-content: center;
+}
+
+.heading {
+  font-weight: 500;
+  font-size: 1.6em;
+  margin-top: 0;
+  margin-bottom: 1.6em;
+}
+
+.text {
+  font-weight: 500;
+  margin-top: 0;
+  margin-bottom: 0.1em;
+}
