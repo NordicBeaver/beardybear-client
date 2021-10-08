@@ -1,6 +1,7 @@
 import { GetServerSideProps, NextPage } from 'next';
 import React from 'react';
 import { BarberDto, getBarbers } from '../api/api';
+import BarberDetails from '../components/BarberDetails';
 import Container from '../components/Container';
 import Footer from '../components/Footer';
 import Header from '../components/Header';
@@ -16,10 +17,14 @@ const BarbersPage: NextPage<BarbersPageProps> = ({ barbers }) => {
       <Header></Header>
 
       <Container>
-        <h1>Barbers</h1>
+        <h1>Our Team</h1>
         <ul>
           {barbers.map((barber) => (
-            <li key={barber.id}>{barber.name}</li>
+            <li key={barber.id}>
+              <div className={styles.barberDetailsContainer}>
+                <BarberDetails barber={barber}></BarberDetails>
+              </div>
+            </li>
           ))}
         </ul>
       </Container>

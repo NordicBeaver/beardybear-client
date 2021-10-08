@@ -1,0 +1,35 @@
+.barberDetails {
+  display: grid;
+  grid-template-columns: 1fr 2fr;
+  margin-bottom: 20px;
+}
+
+.photo {
+  position: relative;
+  min-height: 400px;
+}
+
+.info {
+  margin-left: 4em;
+}
+
+.name {
+  font-size: 1.6em;
+  font-weight: 500;
+}
+
+.description {
+  color: #575650;
+  font-weight: 500;
+  margin-bottom: 4em;
+}
+
+.button {
+  display: inline-block;
+  background-color: #141414;
+  color: #ffe9b0;
+  font-weight: 500;
+  text-transform: uppercase;
+  padding: 0.8em 3em;
+  border-radius: 10px;
+}

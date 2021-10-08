@@ -2,6 +2,10 @@ import axios from 'axios';
 
 const host = 'http://localhost:3000';
 
+export function imageUrl(filename: string) {
+  return `${host}/images/${filename}`;
+}
+
 export interface BarberDto {
   id: number;
   name: string;
