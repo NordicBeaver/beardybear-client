@@ -2,8 +2,8 @@ import React, { useState } from 'react';
 import { BarberDto, BarberServiceDto } from '../api/api';
 import ActionButton from './ActionButton';
 import styles from './BookAppointmentForm.module.css';
+import DatetimeInput from './DatetimeInput';
 import SelectInput, { SelectInputOption } from './SelectInput';
-import TextInput from './TextInput';
 
 interface BookAppointmentFormProps {
   barbers: BarberDto[];
@@ -13,7 +13,7 @@ interface BookAppointmentFormProps {
 export default function BookAppointmentForm({ barbers, barberServices }: BookAppointmentFormProps) {
   const [selectedBarberId, setSelectedBarberId] = useState<number | null>(null);
   const [selectedBarberServiceId, setSelectedBarberServiceId] = useState<number | null>(null);
-  const [selectedDatetime, setSelectedDatetime] = useState('');
+  const [selectedDatetime, setSelectedDatetime] = useState<Date | null>(null);
 
   const handleSelectedBarberChange: React.ChangeEventHandler<HTMLSelectElement> = (e) => {
     const newSelectedBarberId = parseInt(e.target.value);
@@ -23,11 +23,6 @@ export default function BookAppointmentForm({ barbers, barberServices }: BookApp
   const handleSelectedBarberServiceChange: React.ChangeEventHandler<HTMLSelectElement> = (e) => {
     const newSelectedBarberServiceId = parseInt(e.target.value);
     setSelectedBarberServiceId(newSelectedBarberServiceId);
-  };
-
-  const handleSelectedDatetimeChange: React.ChangeEventHandler<HTMLInputElement> = (e) => {
-    const newSelectedDatetime = e.target.value;
-    setSelectedDatetime(newSelectedDatetime);
   };
 
   const handleSubmit: React.FormEventHandler<HTMLFormElement> = (e) => {
@@ -58,11 +53,11 @@ export default function BookAppointmentForm({ barbers, barberServices }: BookApp
         </SelectInput>
       </div>
       <div className={styles.formField}>
-        <TextInput
+        <DatetimeInput
           label="Select date and time"
           value={selectedDatetime}
-          onChange={handleSelectedDatetimeChange}
-        ></TextInput>
+          onChange={setSelectedDatetime}
+        ></DatetimeInput>
       </div>
       <ActionButton type="submit">Book</ActionButton>
     </form>

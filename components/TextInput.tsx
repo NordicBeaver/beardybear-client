@@ -11,7 +11,7 @@ export default function TextInput({ label, ...props }: TextInputProps) {
   return (
     <div className={styles.container}>
       <label className={styles.label}>{label}</label>
-      <input type="text" className={styles.textInput} {...props}></input>
+      <input type="text" {...props} className={styles.textInput}></input>
     </div>
   );
 }
