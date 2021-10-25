@@ -1,0 +1,29 @@
+.container {
+  position: relative;
+  padding-top: 8px;
+}
+
+.label {
+  position: absolute;
+  top: 0px;
+  left: 5px;
+  padding: 0 4px;
+  font-size: 0.8em;
+  background-color: #ffffff;
+}
+
+.selectInput {
+  width: 100%;
+  border: 1px solid #141414;
+  border-radius: 8px;
+  padding: 0.8em 1em;
+  font-size: 1.1em;
+  font-family: inherit;
+  background-color: #ffffff;
+  color: #141414;
+}
+
+.selectInputOption {
+  appearance: none;
+  padding: 0.8em 1em;
+}

@@ -1,6 +1,7 @@
 import React, { useState } from 'react';
 import { BarberDto, BarberServiceDto } from '../api/api';
 import styles from './BookAppointmentForm.module.css';
+import SelectInput, { SelectInputOption } from './SelectInput';
 
 interface BookAppointmentFormProps {
   barbers: BarberDto[];
@@ -35,26 +36,24 @@ export default function BookAppointmentForm({ barbers, barberServices }: BookApp
   return (
     <form onSubmit={handleSubmit}>
       <div>
-        <label>Select a barber</label>
-        <select onChange={handleSelectedBarberChange}>
-          <option selected={selectedBarberId == null} disabled></option>
+        <SelectInput label="Select a Barber" onChange={handleSelectedBarberChange}>
+          <SelectInputOption></SelectInputOption>
           {barbers.map((barber) => (
-            <option key={barber.id} value={barber.id}>
+            <SelectInputOption key={barber.id} value={barber.id}>
               {barber.name}
-            </option>
+            </SelectInputOption>
           ))}
-        </select>
+        </SelectInput>
       </div>
       <div>
-        <label>Select a service</label>
-        <select onChange={handleSelectedBarberServiceChange}>
-          <option selected disabled></option>
+        <SelectInput label="Select a Service" onChange={handleSelectedBarberServiceChange}>
+          <SelectInputOption></SelectInputOption>
           {barberServices.map((barberService) => (
-            <option key={barberService.id} value={barberService.id}>
+            <SelectInputOption key={barberService.id} value={barberService.id}>
               {barberService.name}
-            </option>
+            </SelectInputOption>
           ))}
-        </select>
+        </SelectInput>
       </div>
       <div>
         <label>Select date and time</label>
