@@ -36,8 +36,8 @@ export default function BookAppointmentForm({ barbers, barberServices }: BookApp
   };
 
   return (
-    <form onSubmit={handleSubmit}>
-      <div>
+    <form onSubmit={handleSubmit} className={styles.form}>
+      <div className={styles.formField}>
         <SelectInput label="Select a Barber" onChange={handleSelectedBarberChange}>
           <SelectInputOption></SelectInputOption>
           {barbers.map((barber) => (
@@ -47,7 +47,7 @@ export default function BookAppointmentForm({ barbers, barberServices }: BookApp
           ))}
         </SelectInput>
       </div>
-      <div>
+      <div className={styles.formField}>
         <SelectInput label="Select a Service" onChange={handleSelectedBarberServiceChange}>
           <SelectInputOption></SelectInputOption>
           {barberServices.map((barberService) => (
@@ -57,7 +57,7 @@ export default function BookAppointmentForm({ barbers, barberServices }: BookApp
           ))}
         </SelectInput>
       </div>
-      <div>
+      <div className={styles.formField}>
         <TextInput
           label="Select date and time"
           value={selectedDatetime}

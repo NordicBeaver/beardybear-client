@@ -25,7 +25,9 @@ const BookAppointmentPage: NextPage<BookAppointmentPageProps> = ({ barbers, barb
       <Header></Header>
       <Container>
         <h1>Book Appointment</h1>
-        <BookAppointmentForm barbers={barbers} barberServices={barberServices}></BookAppointmentForm>
+        <div className={styles.formContainer}>
+          <BookAppointmentForm barbers={barbers} barberServices={barberServices}></BookAppointmentForm>
+        </div>
       </Container>
       <Footer></Footer>
     </div>

@@ -4,3 +4,7 @@
   flex-direction: column;
   justify-content: space-between;
 }
+
+.formContainer {
+  margin-bottom: 2em;
+}
