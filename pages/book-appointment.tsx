@@ -1,13 +1,19 @@
-import { NextPage } from 'next';
+import { GetServerSideProps, NextPage } from 'next';
 import Head from 'next/head';
 import React from 'react';
+import { BarberDto, BarberServiceDto, getBarbers, getBarberServices } from '../api/api';
 import BookAppointmentForm from '../components/BookAppointmentForm';
 import Container from '../components/Container';
 import Footer from '../components/Footer';
 import Header from '../components/Header';
 import styles from './book-appointment.module.css';
 
-const BookAppointment: NextPage = () => {
+interface BookAppointmentPageProps {
+  barbers: BarberDto[];
+  barberServices: BarberServiceDto[];
+}
+
+const BookAppointmentPage: NextPage<BookAppointmentPageProps> = ({ barbers, barberServices }) => {
   return (
     <div className={styles.page}>
       <Head>
@@ -19,11 +25,22 @@ const BookAppointment: NextPage = () => {
       <Header></Header>
       <Container>
         <h1>Book Appointment</h1>
-        <BookAppointmentForm></BookAppointmentForm>
+        <BookAppointmentForm barbers={barbers} barberServices={barberServices}></BookAppointmentForm>
       </Container>
       <Footer></Footer>
     </div>
   );
 };
 
-export default BookAppointment;
+export default BookAppointmentPage;
+
+export const getServerSideProps: GetServerSideProps<BookAppointmentPageProps> = async (context) => {
+  const barbers = await getBarbers();
+  const barberServices = await getBarberServices();
+  return {
+    props: {
+      barbers: barbers,
+      barberServices: barberServices,
+    },
+  };
+};

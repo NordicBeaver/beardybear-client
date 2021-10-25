@@ -1,7 +1,13 @@
 import React, { useState } from 'react';
+import { BarberDto, BarberServiceDto } from '../api/api';
 import styles from './BookAppointmentForm.module.css';
 
-export default function BookAppointmentForm() {
+interface BookAppointmentFormProps {
+  barbers: BarberDto[];
+  barberServices: BarberServiceDto[];
+}
+
+export default function BookAppointmentForm({ barbers, barberServices }: BookAppointmentFormProps) {
   const [selectedBarberId, setSelectedBarberId] = useState<number | null>(null);
   const [selectedBarberServiceId, setSelectedBarberServiceId] = useState<number | null>(null);
   const [selectedDatetime, setSelectedDatetime] = useState('');
@@ -32,20 +38,22 @@ export default function BookAppointmentForm() {
         <label>Select a barber</label>
         <select onChange={handleSelectedBarberChange}>
           <option selected={selectedBarberId == null} disabled></option>
-          <option selected={selectedBarberId == 1} value="1">
-            Barber
-          </option>
-          <option selected={selectedBarberId == 2} value="2">
-            Barber
-          </option>
+          {barbers.map((barber) => (
+            <option key={barber.id} value={barber.id}>
+              {barber.name}
+            </option>
+          ))}
         </select>
       </div>
       <div>
         <label>Select a service</label>
         <select onChange={handleSelectedBarberServiceChange}>
           <option selected disabled></option>
-          <option value="1">Service</option>
-          <option value="2">Service</option>
+          {barberServices.map((barberService) => (
+            <option key={barberService.id} value={barberService.id}>
+              {barberService.name}
+            </option>
+          ))}
         </select>
       </div>
       <div>
