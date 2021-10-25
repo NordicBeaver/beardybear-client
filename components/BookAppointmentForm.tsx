@@ -1,5 +1,6 @@
 import React, { useState } from 'react';
 import { BarberDto, BarberServiceDto } from '../api/api';
+import ActionButton from './ActionButton';
 import styles from './BookAppointmentForm.module.css';
 import SelectInput, { SelectInputOption } from './SelectInput';
 import TextInput from './TextInput';
@@ -63,7 +64,7 @@ export default function BookAppointmentForm({ barbers, barberServices }: BookApp
           onChange={handleSelectedDatetimeChange}
         ></TextInput>
       </div>
-      <button type="submit">Book</button>
+      <ActionButton type="submit">Book</ActionButton>
     </form>
   );
 }

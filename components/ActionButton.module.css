@@ -1,0 +1,14 @@
+.actionButton {
+  background-color: #ffe8b0;
+  border: none;
+  padding: 0.5em 0.8em;
+  font-size: 1.3em;
+  font-weight: 500;
+  border-radius: 6px;
+  font-family: inherit;
+  cursor: pointer;
+}
+
+.actionButton:hover {
+  background-color: #dac694;
+}
