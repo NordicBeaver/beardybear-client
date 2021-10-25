@@ -35,8 +35,7 @@ const BookAppointmentPage: NextPage<BookAppointmentPageProps> = ({ barbers, barb
 export default BookAppointmentPage;
 
 export const getServerSideProps: GetServerSideProps<BookAppointmentPageProps> = async (context) => {
-  const barbers = await getBarbers();
-  const barberServices = await getBarberServices();
+  const [barbers, barberServices] = await Promise.all([await getBarbers(), await getBarberServices()]);
   return {
     props: {
       barbers: barbers,
