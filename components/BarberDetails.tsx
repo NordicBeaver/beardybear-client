@@ -26,7 +26,7 @@ export default function BarberDetails({ barber }: BarberDetailsProps) {
       <div className={styles.info}>
         <h2 className={styles.name}>{barber.name}</h2>
         <p className={styles.description}>{barber.description}</p>
-        <Link href="/book">
+        <Link href="/book-appointment">
           <a className={styles.button}>Book Appointment</a>
         </Link>
       </div>

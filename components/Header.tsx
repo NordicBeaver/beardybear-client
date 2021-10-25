@@ -26,7 +26,7 @@ export default function Header() {
               </Link>
             </li>
             <li className={styles.menuItem}>
-              <Link href="/bookAppointment">
+              <Link href="/book-appointment">
                 <a>Book</a>
               </Link>
             </li>
