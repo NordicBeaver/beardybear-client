@@ -1,0 +1,18 @@
+.service {
+  text-align: center;
+  margin-bottom: 4em;
+}
+
+.serviceName {
+  font-size: 1.1em;
+  font-weight: 500;
+}
+
+.servicePrice {
+  font-size: 1.1em;
+  font-weight: 700;
+}
+
+.serviceDescription {
+  color: #575551;
+}
