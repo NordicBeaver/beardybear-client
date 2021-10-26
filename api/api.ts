@@ -1,4 +1,4 @@
-import axios from 'axios';
+import axios, { AxiosResponse } from 'axios';
 
 const host = 'http://localhost:3000';
 
@@ -28,6 +28,25 @@ export interface BarberServiceDto {
 
 export async function getBarberServices() {
   const response = await axios.get<BarberServiceDto[]>(`${host}/barber-services`);
+  const data = response.data;
+  return data;
+}
+
+export interface AppointmentDto {
+  id: number;
+  barber: BarberDto;
+  barberService: BarberServiceDto;
+  datetime: string;
+}
+
+export interface CreateAppointmentDto {
+  barberId: number;
+  barberServiceId: number;
+  datetime: string;
+}
+
+export async function createAppointment(dto: CreateAppointmentDto) {
+  const response = (await axios.post(`${host}/appointments`, dto)) as AxiosResponse<AppointmentDto>;
   const data = response.data;
   return data;
 }

@@ -1,5 +1,6 @@
+import { useRouter } from 'next/dist/client/router';
 import React, { useState } from 'react';
-import { BarberDto, BarberServiceDto } from '../api/api';
+import { BarberDto, BarberServiceDto, createAppointment } from '../api/api';
 import ActionButton from './ActionButton';
 import styles from './BookAppointmentForm.module.css';
 import DatetimeInput from './DatetimeInput';
@@ -15,6 +16,8 @@ export default function BookAppointmentForm({ barbers, barberServices }: BookApp
   const [selectedBarberServiceId, setSelectedBarberServiceId] = useState<number | null>(null);
   const [selectedDatetime, setSelectedDatetime] = useState<Date | null>(null);
 
+  const router = useRouter();
+
   const handleSelectedBarberChange: React.ChangeEventHandler<HTMLSelectElement> = (e) => {
     const newSelectedBarberId = parseInt(e.target.value);
     setSelectedBarberId(newSelectedBarberId);
@@ -25,9 +28,16 @@ export default function BookAppointmentForm({ barbers, barberServices }: BookApp
     setSelectedBarberServiceId(newSelectedBarberServiceId);
   };
 
-  const handleSubmit: React.FormEventHandler<HTMLFormElement> = (e) => {
+  const handleSubmit: React.FormEventHandler<HTMLFormElement> = async (e) => {
     e.preventDefault();
-    console.log(selectedBarberId, selectedBarberServiceId, selectedDatetime);
+    if (selectedBarberId != null && selectedBarberServiceId != null && selectedDatetime != null) {
+      await createAppointment({
+        barberId: selectedBarberId,
+        barberServiceId: selectedBarberServiceId,
+        datetime: selectedDatetime.toISOString(),
+      });
+      router.push('/');
+    }
   };
 
   return (
