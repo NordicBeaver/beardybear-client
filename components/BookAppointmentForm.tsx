@@ -16,7 +16,23 @@ export default function BookAppointmentForm({ barbers, barberServices }: BookApp
   const [selectedBarberServiceId, setSelectedBarberServiceId] = useState<number | null>(null);
   const [selectedDatetime, setSelectedDatetime] = useState<Date | null>(null);
 
+  const [errors, setErrors] = useState<string[]>([]);
+
   const router = useRouter();
+
+  const validate = () => {
+    const validationErrors: string[] = [];
+    if (selectedBarberId == null) {
+      validationErrors.push('Please select a Barber.');
+    }
+    if (selectedBarberServiceId == null) {
+      validationErrors.push('Please select a Service.');
+    }
+    if (selectedDatetime == null) {
+      validationErrors.push('Please select date and time.');
+    }
+    return validationErrors;
+  };
 
   const handleSelectedBarberChange: React.ChangeEventHandler<HTMLSelectElement> = (e) => {
     const newSelectedBarberId = parseInt(e.target.value);
@@ -30,6 +46,13 @@ export default function BookAppointmentForm({ barbers, barberServices }: BookApp
 
   const handleSubmit: React.FormEventHandler<HTMLFormElement> = async (e) => {
     e.preventDefault();
+
+    const newErrors = validate();
+    if (newErrors.length > 0) {
+      setErrors(newErrors);
+      return;
+    }
+
     if (selectedBarberId != null && selectedBarberServiceId != null && selectedDatetime != null) {
       await createAppointment({
         barberId: selectedBarberId,
@@ -69,6 +92,15 @@ export default function BookAppointmentForm({ barbers, barberServices }: BookApp
           onChange={setSelectedDatetime}
         ></DatetimeInput>
       </div>
+      {errors.length > 0 ? (
+        <div className={styles.errors}>
+          {errors.map((error) => (
+            <p key={error} className={styles.error}>
+              {error}
+            </p>
+          ))}
+        </div>
+      ) : null}
       <ActionButton type="submit">Book</ActionButton>
     </form>
   );
