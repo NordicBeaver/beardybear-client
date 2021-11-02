@@ -5,7 +5,8 @@ interface MyTextInputProps {
   label: string;
 }
 
-type TextInputProps = React.HTMLProps<HTMLInputElement> & MyTextInputProps;
+type TextInputProps = React.DetailedHTMLProps<React.InputHTMLAttributes<HTMLInputElement>, HTMLInputElement> &
+  MyTextInputProps;
 
 export default function TextInput({ label, ...props }: TextInputProps) {
   return (

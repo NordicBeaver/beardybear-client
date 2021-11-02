@@ -5,6 +5,7 @@ import ActionButton from './ActionButton';
 import styles from './BookAppointmentForm.module.css';
 import DatetimeInput from './DatetimeInput';
 import SelectInput, { SelectInputOption } from './SelectInput';
+import TextInput from './TextInput';
 
 interface BookAppointmentFormProps {
   barbers: BarberDto[];
@@ -15,6 +16,8 @@ export default function BookAppointmentForm({ barbers, barberServices }: BookApp
   const [selectedBarberId, setSelectedBarberId] = useState<number | null>(null);
   const [selectedBarberServiceId, setSelectedBarberServiceId] = useState<number | null>(null);
   const [selectedDatetime, setSelectedDatetime] = useState<Date | null>(null);
+  const [clientName, setClientName] = useState('');
+  const [clientPhoneNumber, setClientPhoneNumber] = useState('');
 
   const [errors, setErrors] = useState<string[]>([]);
 
@@ -30,6 +33,12 @@ export default function BookAppointmentForm({ barbers, barberServices }: BookApp
     }
     if (selectedDatetime == null) {
       validationErrors.push('Please select date and time.');
+    }
+    if (clientName.trim() == '') {
+      validationErrors.push('Please enter your name.');
+    }
+    if (clientPhoneNumber.trim() == '') {
+      validationErrors.push('Please enter your phone number.');
     }
     return validationErrors;
   };
@@ -58,6 +67,8 @@ export default function BookAppointmentForm({ barbers, barberServices }: BookApp
         barberId: selectedBarberId,
         barberServiceId: selectedBarberServiceId,
         datetime: selectedDatetime.toISOString(),
+        clientName: clientName,
+        clientPhoneNumber: clientPhoneNumber,
       });
       router.push('/');
     }
@@ -91,6 +102,16 @@ export default function BookAppointmentForm({ barbers, barberServices }: BookApp
           value={selectedDatetime}
           onChange={setSelectedDatetime}
         ></DatetimeInput>
+      </div>
+      <div className={styles.formField}>
+        <TextInput label="Name" value={clientName} onChange={(e) => setClientName(e.target.value)}></TextInput>
+      </div>
+      <div className={styles.formField}>
+        <TextInput
+          label="Phone Number"
+          value={clientPhoneNumber}
+          onChange={(e) => setClientPhoneNumber(e.target.value)}
+        ></TextInput>
       </div>
       {errors.length > 0 ? (
         <div className={styles.errors}>
