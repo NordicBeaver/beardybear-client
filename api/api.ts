@@ -1,6 +1,6 @@
 import axios, { AxiosResponse } from 'axios';
 
-const host = 'http://localhost:3000';
+const host = process.env.NEXT_PUBLIC_ANALYTICS_ID ?? 'http://localhost:3000';
 
 export function imageUrl(filename: string) {
   return `${host}/images/${filename}`;
