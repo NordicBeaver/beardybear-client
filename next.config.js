@@ -2,6 +2,6 @@
 module.exports = {
   reactStrictMode: true,
   images: {
-    domains: ['localhost'],
+    domains: [process.env.NEXT_IMAGE_ALLOWED_DOMAIN ? process.env.NEXT_IMAGE_ALLOWED_DOMAIN : 'localhost'],
   },
 };
