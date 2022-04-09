@@ -1,3 +1,11 @@
+# Description 
+
+Front-end for the client's side of the BeardyBear project.
+
+Live version: https://beardybear.nordicbeaver.io/
+
+For more details: https://www.youtube.com/watch?v=b_QDY1UIT7Y&list=PL7b0cPjh8z6K_4qLNu_QdE3RpiU6omViC
+
 This is a [Next.js](https://nextjs.org/) project bootstrapped with [`create-next-app`](https://github.com/vercel/next.js/tree/canary/packages/create-next-app).
 
 ## Getting Started
